@@ -1,35 +1,30 @@
 // DOM objects
-// Size picker form
-const sizePickerForm = $("#sizePicker");
-// Height and width inputs
-const inputHeight = $("#inputHeight");
-const inputWidth = $("#inputWidth");
-// Size picker submit button
-const sizePickerSubmit = $('#sizePicker input[type="submit"]');
-// Canvas, aka the html table grid
-const pixelCanvas = $("#pixelCanvas");
-// Color picker input
-const colorPicker = $("#colorPicker");
-// Select color input
+const sizePickerForm = document.getElementById("sizePicker");
+const inputHeight = document.getElementById("inputHeight");
+const inputWidth = document.getElementById("inputWidth");
+const sizePickerSubmit = document.getElementById("sizePickerSubmit");
+const clearCanvas = document.getElementById("clearCanvas");
+const colorPicker = document.getElementById("colorPicker");
 let color = "#000000";
+const pixelCanvas = document.getElementById("pixelCanvas");
+
 // Declare and assign table array & row & col elements
 let table = [];
 const row = "<tr></tr>";
 const col = "<td></td>";
 
+// Create the object that will hold the canvass
 function makeTable() {
-  // Get height and width
-  const height = inputHeight.val();
-  const width = inputWidth.val();
-
   /*
     [
         { 'row0': ['<tr></tr>', '<td></td', '<td></td>', ...] },  
         { 'row1': ['<tr></tr>', '<td></td', '<td></td>', ...] },
         ...
     ]
-    */
-
+  */
+  // Get height and width
+  const height = parseInt(inputHeight.value, 10);
+  const width = parseInt(inputWidth.value, 10);
   // Create table
   for (let i = 0; i < height; i++) {
     let rowName = "row" + i;
