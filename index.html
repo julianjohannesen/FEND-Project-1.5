@@ -13,36 +13,34 @@
 <body>
   <h1>Pixel Art Maker</h1>
 
-  <form id="sizePicker">
-    <fieldset>
-      <legend>Choose Grid Size</legend>
-      <label for="inputHeight">
-        Grid Height:
-        <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="50" accesskey="H" tabindex="0">
-      </label>
-      <label for="inputWidth">
-        Grid Width:
-        <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="50" accesskey="W" tabindex="1">
-      </label>
-      <input type="submit" id="sizePickerSubmit" accesskey="S" tabindex="2">
-    </fieldset>
-  </form>
+  <section id="controls">
+    <form id="sizePicker">
+      <fieldset>
+        <legend>Grid Size</legend>
+        <label for="inputHeight">
+          Height:
+          <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="50" accesskey="H" tabindex="0">
+        </label>
+        <label for="inputWidth">
+          Width:
+          <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="50" accesskey="W" tabindex="1">
+        </label>
+        <button type="button" id="sizePickerSubmit" tabindex="2">Submit</button>
+      </fieldset>
+    </form>
 
-  <form id="modeColorClear">
-    <fieldset>
-      <legend>Mode</legend>
-      <input type='button' id='paintBttn' value="Paint" accesskey="P" tabindex="3">
-      <input type='button' id='eraseBttn' value="Erase" accesskey="E" tabindex="4">
-
+    <form id="modeColorClear">
+      <fieldset>
+        <legend>Mode</legend>
+        <button type='button' id='paintBttn' value="Paint" tabindex="3">Paint</button>
+        <button type='button' id='eraseBttn' value="Erase" tabindex="4">Erase</button>
+      </fieldset>
+      <button type="button " id="clearCanvas" value="Clear" tabindex="6">Clear Canvass</button>
       <label for="colorPicker ">Pick A Color
-        <input type="color " id="colorPicker" accesskey="C" tabindex="5">
+        <input type="color" id="colorPicker" value="purple">
       </label>
-
-      <label for="clearCanvas ">Clear Canvass
-        <input type="button " id="clearCanvas " accesskey="c" tabindex="6">
-      </label>
-    </fieldset>
-  </form>
+    </form>
+  </section>
 
   <h2>Design Canvas</h2>
   <table id="pixelCanvas">
