@@ -2,45 +2,52 @@
 <html>
 
 <head>
-    <title>Pixel Art Maker!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-    </script>
+  <title>Pixel Art Maker!</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
 </head>
 
 <body>
-    <h1>Pixel Art Maker</h1>
+  <h1>Pixel Art Maker</h1>
 
-    <h2>Choose Grid Size</h2>
+  <section id="controls">
     <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="inputHeight" name="height" min="1" value="1"> Grid Width:
-        <input type="number" id="inputWidth" name="width" min="1" value="1">
-        <input type="submit">
+      <fieldset>
+        <legend>Grid Size</legend>
+        <label for="inputHeight">
+          Height:
+          <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="50" accesskey="H" tabindex="0">
+        </label>
+        <label for="inputWidth">
+          Width:
+          <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="50" accesskey="W" tabindex="1">
+        </label>
+        <button type="button" id="sizePickerSubmit" tabindex="2">Submit</button>
+      </fieldset>
     </form>
 
-    <form>
-        <fieldset id='mode'>
-            <h2>Mode</h2>
-            <input type='button' id='paintBttn'>Paint</input>
-            <input type='button' id='eraseBttn'>Erase</input>
-
-            <label for="colorPicker">Pick A Color
-                <input type="color" id="colorPicker">
-            </label>
-
-            <label for="clearCanvas">Clear Canvass
-                <input type="button" id="clearCanvas">
-            </label>
-        </fieldset>
+    <form id="modeColorClear">
+      <fieldset>
+        <legend>Mode</legend>
+        <button type='button' id='paintBttn' value="Paint" tabindex="3">Paint</button>
+        <button type='button' id='eraseBttn' value="Erase" tabindex="4">Erase</button>
+      </fieldset>
+      <button type="button " id="clearCanvas" value="Clear" tabindex="6">Clear Canvass</button>
+      <label for="colorPicker ">Pick A Color
+        <input type="color" id="colorPicker" value="purple">
+      </label>
     </form>
+  </section>
 
-    <h2>Design Canvas</h2>
-    <table id="pixelCanvas"></table>
+  <h2>Design Canvas</h2>
+  <table id="pixelCanvas">
 
-    <script src="designs.js"></script>
+  </table>
+
+  <script src="designs.js"></script>
 </body>
 
 </html>
