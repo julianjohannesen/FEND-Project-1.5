@@ -38,6 +38,7 @@ function insertTable() {
 // Clicking the size picker form's submit button will call
 // tableListener, which calls makeTable and insertTable
 function tableListener() {
+  pixelCanvas.innerHTML = " ";
   makeTable();
   insertTable();
 }
