@@ -67,7 +67,7 @@ function draw(event) {
 }
 
 // This function clears the grid of color while leaving the grid in place
-function clearGrid() {
+function clearGrid(event) {
   event.preventDefault();
   const cells = pixelCanvas.getElementsByTagName("td");
   for (let k = 0; k < cells.length; k++) {
