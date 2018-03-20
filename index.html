@@ -30,8 +30,12 @@
     <form id="modeColorClear">
       <fieldset>
         <legend>Mode</legend>
-        <button type='button' id='paintBttn' value="Paint" tabindex="3">Paint</button>
-        <button type='button' id='eraseBttn' value="Erase" tabindex="4">Erase</button>
+        <label for="paintBttn">Paint
+          <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
+        </label>
+        <label for="eraseBttn">Erase
+          <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
+        </label>
       </fieldset>
       <fieldset>
         <legend>Color</legend>
