@@ -69,10 +69,7 @@ function draw(event) {
 // This function clears the grid of color while leaving the grid in place
 function clearGrid(event) {
   event.preventDefault();
-  const cells = pixelCanvas.getElementsByTagName("td");
-  for (let k = 0; k < cells.length; k++) {
-    cells[k].style.backgroundColor = "transparent";
-  }
+  insertTable();
 }
 
 // Set size picker submit button listener. Call makeTable on submit.
