@@ -10,7 +10,10 @@ const pixelCanvas = document.getElementById("pixelCanvas");
 
 // User a nested loop to create a long string storing the table html
 let tableHtml = "";
+
 function makeTable() {
+  // Reset the grid
+  pixelCanvas.innerHTML = "&nbsp";
   // Get height and width
   const height = parseInt(inputHeight.value, 10);
   const width = parseInt(inputWidth.value, 10);
@@ -29,7 +32,9 @@ function makeTable() {
   return tableHtml;
 }
 
-// insertTable inserts the table html
+// tableListener will call insertTable after calling makeTable.
+// insertTable uses the canvas's innerHTML property to insert
+// the table html
 function insertTable() {
   // Set the canvas's innerHTML property to the table html
   pixelCanvas.innerHTML = tableHtml;
@@ -38,7 +43,7 @@ function insertTable() {
 // Clicking the size picker form's submit button will call
 // tableListener, which calls makeTable and insertTable
 function tableListener() {
-  pixelCanvas.innerHTML = " ";
+  pixelCanvas.innerHTML = "<p>What's up?</p>";
   makeTable();
   insertTable();
 }
@@ -52,14 +57,18 @@ function watchColorPicker(event) {
 // Clicking on the table will change the color of the td where the click
 // took place
 function draw(event) {
-  event.target.style.backgroundColor = color;
+  if (event.buttons === 1) {
+    event.target.style.backgroundColor = color;
+  }
 }
 
 // Set size picker submit button listener. Call makeTable on submit.
-sizePickerSubmit.addEventListener("click", tableListener, true);
+sizePickerSubmit.addEventListener("click", tableListener, false);
 
 // Set the color picker event listener. Call watchColorPicker on change.
-colorPicker.addEventListener("change", watchColorPicker, true);
+colorPicker.addEventListener("change", watchColorPicker, false);
 
 // Set the table listener
-pixelCanvas.addEventListener("click", draw, true);
+// pixelCanvas.addEventListener("click", draw, false);
+pixelCanvas.addEventListener("mouseover", draw, false);
+pixelCanvas.addEventListener("mousedown", draw, false);
