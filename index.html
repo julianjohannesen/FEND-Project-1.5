@@ -28,7 +28,7 @@
     </form>
 
     <form id="modeColorClear">
-      <fieldset>
+      <fieldset id="paintEraseClear">
         <legend>Mode</legend>
         <label for="paintBttn">Paint
           <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
@@ -36,16 +36,13 @@
         <label for="eraseBttn">Erase
           <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
         </label>
+        <button type="button " id="clearCanvas" value="Clear" tabindex="5">Clear</button>
       </fieldset>
       <fieldset>
         <legend>Color</legend>
         <label for="colorPicker ">Pick A Color
           <input type="color" id="colorPicker" value="#000000">
         </label>
-      </fieldset>
-      <fieldset>
-        <legend>Clear Canvas</legend>
-        <button type="button " id="clearCanvas" value="Clear" tabindex="6">Clear</button>
       </fieldset>
     </form>
   </section>

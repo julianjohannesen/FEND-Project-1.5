@@ -37,15 +37,17 @@ td {
 }
 
 input[type="number"] {
-  width: 6em;
+  width: 3em;
 }
 
 input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
 
   border: 2px solid #999;
   transition: 0.2s all linear;
@@ -57,5 +59,9 @@ input[type="radio"] {
 }
 
 input:checked {
-  border: 6px solid black;
+  border: 10px solid black;
+}
+
+#clearCanvas {
+  margin-left: 12px;
 }

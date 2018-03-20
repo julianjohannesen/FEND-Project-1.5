@@ -3,11 +3,11 @@ const sizePickerForm = document.getElementById("sizePicker");
 const inputHeight = document.getElementById("inputHeight");
 const inputWidth = document.getElementById("inputWidth");
 const sizePickerSubmit = document.getElementById("sizePickerSubmit");
-const clearCanvas = document.getElementById("clearCanvas");
 const colorPicker = document.getElementById("colorPicker");
 let color = "#000000";
 const paint = document.getElementById("paintBttn");
 const erase = document.getElementById("eraseBttn");
+const clearCanvas = document.getElementById("clearCanvas");
 const pixelCanvas = document.getElementById("pixelCanvas");
 
 // User a nested loop to create a long string storing the table html
@@ -66,17 +66,24 @@ function draw(event) {
   }
 }
 
+// This function clears the grid of color while leaving the grid in place
+function clearGrid() {
+  event.preventDefault();
+  const cells = pixelCanvas.getElementsByTagName("td");
+  for (let k = 0; k < cells.length; k++) {
+    cells[k].style.backgroundColor = "transparent";
+  }
+}
+
 // Set size picker submit button listener. Call makeTable on submit.
 sizePickerSubmit.addEventListener("click", tableListener, false);
 
 // Set the color picker event listener. Call watchColorPicker on change.
 colorPicker.addEventListener("change", watchColorPicker, false);
 
-// Set the paint mode and erase mode listener.
+// Set the clear button listener
+clearCanvas.addEventListener("click", clearGrid, false);
 
-// Set the table listener
-// pixelCanvas.addEventListener("click", draw, false);
+// Set the draw listener. Call
 pixelCanvas.addEventListener("mouseover", draw, false);
 pixelCanvas.addEventListener("mousedown", draw, false);
-
-// okay. set a variable that says paint or erase. or just paint = true or false. if true, then default behavior, else erase mode.
