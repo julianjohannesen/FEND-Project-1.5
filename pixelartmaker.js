@@ -128,6 +128,8 @@ function draw(event) {
 function clearGrid(event) {
   // Prevent the button click's default behavior
   event.preventDefault();
+  // Set paint to checked, just in case the user had previously set the erase mode and forgotten to change back before hitting "clear"
+  paint.checked = true;
   // Fire insert table.
   insertTable();
 }
