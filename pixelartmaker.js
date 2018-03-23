@@ -1,19 +1,20 @@
-/** @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
- * @see <a href="https://github.com/julianjohannesen/pixel-art-maker">Pixel Art Maker Repo</a> 
+/**
+ * @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
+ * @see <a href="https://github.com/julianjohannesen/pixel-art-maker">Pixel Art Maker Repo</a>
  * @author Julian Johannesen
  * @version 1.0.0
  */
 /** DOM object constants */
-/** @const {string} sizePickerForm - the size picker form element */
-/** @const {number} inputHeight - The height input element */
-/** @const {number} inputWidth - The width input element */
-/** @const {string} sizePickerSubmit - The size picker form's submit button element */
-/** @const {string} colorPicker - The color input element */
-/** @const {string} color - The holder for color picker's value */
-/** @const {string} paint - The paint radio input element */
-/** @const {string} erase - The erase radio input element */
-/** @const {string} clearCanvas - The clear canvas button element */
-/** @const {string} pixelCanvas - The canvas table element */
+/** @const {string} sizePickerForm - This variable holds the size picker form element */
+/** @const {number} inputHeight - This variable holds the height input element */
+/** @const {number} inputWidth - This variable holds the width input element */
+/** @const {string} sizePickerSubmit - This variable holds the size picker form's submit button element */
+/** @const {string} colorPicker - This variable holds the color input element */
+/** @const {string} color - This variable holds the color value chosen by the user in the color picker. */
+/** @const {string} paint - This variable holds the paint radio input element */
+/** @const {string} erase - This variable holds the erase radio input element */
+/** @const {string} clearCanvas - This variable holds the clear canvas button element */
+/** @const {string} pixelCanvas - This variable holds the canvas table element */
 
 const sizePickerForm = document.getElementById("sizePicker");
 const inputHeight = document.getElementById("inputHeight");
@@ -27,13 +28,13 @@ const clearCanvas = document.getElementById("clearCanvas");
 const pixelCanvas = document.getElementById("pixelCanvas");
 
 /** Other variables */
-/** @const {string} tableHtml - @description The holder for makeTable's output */
+/** @const {string} tableHtml - This variable holds the  holder for makeTable's output */
 let tableHtml = "";
 
 /**
- * @descrition makeTable generates the table HTML that will be stored in the tableHtml variable.
+ * @description makeTable generates the table HTML that is stored in the tableHtml variable.
  * @callback makeTable()
- * @param {null} Does not have any parameters
+ * @param {null} " " Does not have any parameters
  * @returns {string}
  */
 function makeTable() {
@@ -65,7 +66,7 @@ function makeTable() {
 /**
  * @description insertTable inserts the table HTML into the DOM
  * @callback insertTable()
- * @param {null} - Does not have any parameters.
+ * @param {null} " " Does not have any parameters.
  * @returns {undefined}
  */
 function insertTable() {
@@ -78,7 +79,7 @@ function insertTable() {
  * @callback sizePickerHandler
  * @fires makeTable
  * @fires insertTable
- * @param {null} - Does not have any parameters
+ * @param {null} " " Does not have any parameters
  * @returns {undefined}
  */
 function sizePickerHandler() {
@@ -132,11 +133,13 @@ function clearGrid(event) {
 }
 
 /**
- * 
- * 
+ * @description init initializes event listeners after the DOM content has loaded.
+ * @callback init
+ * @param {null} " " Does not have any parameters.
+ * @returns {undefined}
+ *
  */
 function init() {
-
   // Set size picker submit button listener. On click call the sizePickerHandler().
   sizePickerSubmit.addEventListener("click", sizePickerHandler, false);
 
@@ -149,7 +152,6 @@ function init() {
   // Set the canvas listeners. On a mouse over, call draw(). On a mousedown call draw().
   pixelCanvas.addEventListener("mouseover", draw, false);
   pixelCanvas.addEventListener("mousedown", draw, false);
-
 }
 
 // Set the document listener for DOM content loaded. On DCL call init().

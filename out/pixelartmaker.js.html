@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>JSDoc: Source: pixelartmaker.js</title>
-  <script src="scripts/prettify/prettify.js"></script>
-  <script src="scripts/prettify/lang-css.js"></script>
-  <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Pixel Art Maker Source: pixelartmaker.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
 </head>
 
 <body>
-  <div id="main">
-    <h1 class="page-title">Source: pixelartmaker.js</h1>
-    <section>
-      <article>
-        <pre class="prettyprint source linenums"><code>/** @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
- * @see &lt;a href="https://github.com/julianjohannesen/pixel-art-maker">Pixel Art Maker Repo&lt;/a> 
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Pixel Art Maker</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#clearCanvas">clearCanvas</a></li><li><a href="global.html#color">color</a></li><li><a href="global.html#colorPicker">colorPicker</a></li><li><a href="global.html#erase">erase</a></li><li><a href="global.html#inputHeight">inputHeight</a></li><li><a href="global.html#inputWidth">inputWidth</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#pixelCanvas">pixelCanvas</a></li><li><a href="global.html#sizePickerForm">sizePickerForm</a></li><li><a href="global.html#sizePickerSubmit">sizePickerSubmit</a></li><li><a href="global.html#tableHtml">tableHtml</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: pixelartmaker.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
+ * @see &lt;a href="https://github.com/julianjohannesen/pixel-art-maker">Pixel Art Maker Repo&lt;/a>
  * @author Julian Johannesen
  * @version 1.0.0
  */
 /** DOM object constants */
-/** @const {string} sizePickerForm - the size picker form element */
-/** @const {number} inputHeight - The height input element */
-/** @const {number} inputWidth - The width input element */
-/** @const {string} sizePickerSubmit - The size picker form's submit button element */
-/** @const {string} colorPicker - The color input element */
-/** @const {string} color - The holder for color picker's value */
-/** @const {string} paint - The paint radio input element */
-/** @const {string} erase - The erase radio input element */
-/** @const {string} clearCanvas - The clear canvas button element */
-/** @const {string} pixelCanvas - The canvas table element */
+/** @const {string} sizePickerForm - This variable holds the size picker form element */
+/** @const {number} inputHeight - This variable holds the height input element */
+/** @const {number} inputWidth - This variable holds the width input element */
+/** @const {string} sizePickerSubmit - This variable holds the size picker form's submit button element */
+/** @const {string} colorPicker - This variable holds the color input element */
+/** @const {string} color - This variable holds the color value chosen by the user in the color picker. */
+/** @const {string} paint - This variable holds the paint radio input element */
+/** @const {string} erase - This variable holds the erase radio input element */
+/** @const {string} clearCanvas - This variable holds the clear canvas button element */
+/** @const {string} pixelCanvas - This variable holds the canvas table element */
 
 const sizePickerForm = document.getElementById("sizePicker");
 const inputHeight = document.getElementById("inputHeight");
@@ -47,13 +100,13 @@ const clearCanvas = document.getElementById("clearCanvas");
 const pixelCanvas = document.getElementById("pixelCanvas");
 
 /** Other variables */
-/** @const {string} tableHtml - @description The holder for makeTable's output */
+/** @const {string} tableHtml - This variable holds the  holder for makeTable's output */
 let tableHtml = "";
 
 /**
- * @descrition makeTable generates the table HTML that will be stored in the tableHtml variable.
+ * @description makeTable generates the table HTML that is stored in the tableHtml variable.
  * @callback makeTable()
- * @param {null} Does not have any parameters
+ * @param {null} " " Does not have any parameters
  * @returns {string}
  */
 function makeTable() {
@@ -85,7 +138,7 @@ function makeTable() {
 /**
  * @description insertTable inserts the table HTML into the DOM
  * @callback insertTable()
- * @param {null} - Does not have any parameters.
+ * @param {null} " " Does not have any parameters.
  * @returns {undefined}
  */
 function insertTable() {
@@ -98,7 +151,7 @@ function insertTable() {
  * @callback sizePickerHandler
  * @fires makeTable
  * @fires insertTable
- * @param {null} - Does not have any parameters
+ * @param {null} " " Does not have any parameters
  * @returns {undefined}
  */
 function sizePickerHandler() {
@@ -152,11 +205,13 @@ function clearGrid(event) {
 }
 
 /**
- * 
- * 
+ * @description init initializes event listeners after the DOM content has loaded.
+ * @callback init
+ * @param {null} " " Does not have any parameters.
+ * @returns {undefined}
+ *
  */
 function init() {
-
   // Set size picker submit button listener. On click call the sizePickerHandler().
   sizePickerSubmit.addEventListener("click", sizePickerHandler, false);
 
@@ -169,65 +224,140 @@ function init() {
   // Set the canvas listeners. On a mouse over, call draw(). On a mousedown call draw().
   pixelCanvas.addEventListener("mouseover", draw, false);
   pixelCanvas.addEventListener("mousedown", draw, false);
-
 }
 
 // Set the document listener for DOM content loaded. On DCL call init().
-document.addEventListener("DOMContentLoaded", init);</code></pre>
-      </article>
-    </section>
-  </div>
-  <nav>
-    <h2>
-      <a href="index.html">Home</a>
-    </h2>
-    <h3>Global</h3>
-    <ul>
-      <li>
-        <a href="global.html#clearCanvas">clearCanvas</a>
-      </li>
-      <li>
-        <a href="global.html#color">color</a>
-      </li>
-      <li>
-        <a href="global.html#colorPicker">colorPicker</a>
-      </li>
-      <li>
-        <a href="global.html#erase">erase</a>
-      </li>
-      <li>
-        <a href="global.html#init">init</a>
-      </li>
-      <li>
-        <a href="global.html#inputHeight">inputHeight</a>
-      </li>
-      <li>
-        <a href="global.html#inputWidth">inputWidth</a>
-      </li>
-      <li>
-        <a href="global.html#paint">paint</a>
-      </li>
-      <li>
-        <a href="global.html#pixelCanvas">pixelCanvas</a>
-      </li>
-      <li>
-        <a href="global.html#sizePickerForm">sizePickerForm</a>
-      </li>
-      <li>
-        <a href="global.html#sizePickerSubmit">sizePickerSubmit</a>
-      </li>
-      <li>
-        <a href="global.html#tableHtml">tableHtml</a>
-      </li>
-    </ul>
-  </nav>
-  <br class="clear">
-  <footer>Documentation generated by
-    <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 23 2018 10:13:54 GMT-0400 (DST)</footer>
-  <script>
-    prettyPrint()
-  </script>
-  <script src="scripts/linenumber.js"></script>
-</body>
+document.addEventListener("DOMContentLoaded", init);
+</pre>
+    </article>
+</section>
 
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Fri Mar 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
 </html>
