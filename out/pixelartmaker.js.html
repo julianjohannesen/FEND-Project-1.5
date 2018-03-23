@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Source: pixelartmaker.js</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <title>JSDoc: Source: pixelartmaker.js</title>
+  <script src="scripts/prettify/prettify.js"></script>
+  <script src="scripts/prettify/lang-css.js"></script>
+  <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
 
 <body>
-
-<div id="main">
-
+  <div id="main">
     <h1 class="page-title">Source: pixelartmaker.js</h1>
-
-    
-
-
-
-    
     <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/** @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
+      <article>
+        <pre class="prettyprint source linenums"><code>/** @fileoverview Pixel Art Maker is a simple drawing application. It enables users to draw in a color of their choosing on a canvass with dimensions of their choosing. Please refer to the GitHub repository's issues tab for more information on  forthcoming enhancements.
  * @see &lt;a href="https://github.com/julianjohannesen/pixel-art-maker">Pixel Art Maker Repo&lt;/a> 
  * @author Julian Johannesen
  * @version 1.0.0
@@ -34,10 +26,10 @@
 /** DOM object constants */
 /** @const {string} sizePickerForm - the size picker form element */
 /** @const {number} inputHeight - The height input element */
-/** @const  {number} inputWidth - The width input element */
+/** @const {number} inputWidth - The width input element */
 /** @const {string} sizePickerSubmit - The size picker form's submit button element */
 /** @const {string} colorPicker - The color input element */
-/** @const {string} @default {"#000000"} color - The holder for color picker's value */
+/** @const {string} color - The holder for color picker's value */
 /** @const {string} paint - The paint radio input element */
 /** @const {string} erase - The erase radio input element */
 /** @const {string} clearCanvas - The clear canvas button element */
@@ -55,11 +47,11 @@ const clearCanvas = document.getElementById("clearCanvas");
 const pixelCanvas = document.getElementById("pixelCanvas");
 
 /** Other variables */
-/** @const {string} @default {string} tableHtml - The holder for makeTable's output */
+/** @const {string} tableHtml - @description The holder for makeTable's output */
 let tableHtml = "";
 
 /**
- * makeTable generates the table HTML that will be stored in the tableHtml variable.
+ * @descrition makeTable generates the table HTML that will be stored in the tableHtml variable.
  * @callback makeTable()
  * @param {null} Does not have any parameters
  * @returns {string}
@@ -91,9 +83,9 @@ function makeTable() {
 }
 
 /**
- * insertTable will insert the table HTML into the DOM
+ * @description insertTable inserts the table HTML into the DOM
  * @callback insertTable()
- * @param {null} None Does not have any parameters.
+ * @param {null} - Does not have any parameters.
  * @returns {undefined}
  */
 function insertTable() {
@@ -101,13 +93,12 @@ function insertTable() {
   pixelCanvas.innerHTML = tableHtml;
 }
 
-// Clicking the size picker form's submit button will call
 /**
- * sizePickerHandler() will reset the table HTML, and fire makeTable() and insertTable()
+ * @description sizePickerHandler() resets the table HTML, and fire makeTable() and insertTable()
  * @callback sizePickerHandler
  * @fires makeTable
  * @fires insertTable
- * @param {null} None Does not have any parameters
+ * @param {null} - Does not have any parameters
  * @returns {undefined}
  */
 function sizePickerHandler() {
@@ -120,7 +111,7 @@ function sizePickerHandler() {
 }
 
 /**
- * watchColorPicker sets the color variable's value to the color selected in the color picker
+ * @description watchColorPicker sets the color variable's value to the color selected in the color picker
  * @callback watchColorPicker
  * @param {any} event The event object passed by the colorPicker listener
  * @returns {undefined}
@@ -130,9 +121,8 @@ function watchColorPicker(event) {
   color = event.target.value;
 }
 
-// Clicking on the table will change the color of the td where the click
 /**
- * draw changes the target table cell's background color to 'color'
+ * @description draw changes the target table cell's background color to 'color'
  * @callback draw
  * @param {any} event The event object passed by the colorPicker listener
  * @returns {undefined}
@@ -149,7 +139,7 @@ function draw(event) {
 }
 
 /**
- * clearGrid re-insert the table html, overwriting the current grid with the same tableHtml but with all table cells returned to their default background color of transparent.
+ * @description clearGrid re-inserts the table html, overwriting the current grid with the same tableHtml but with all table cells returned to their default background color of transparent.
  * @callback clearGrid
  * @param {any} event The event object passed by the clearCanvas listener
  * @returns {undefined}
@@ -161,37 +151,83 @@ function clearGrid(event) {
   insertTable();
 }
 
-// Set size picker submit button listener. Call makeTable on submit.
-sizePickerSubmit.addEventListener("click", sizePickerHandler, false);
+/**
+ * 
+ * 
+ */
+function init() {
 
-// Set the color picker event listener. Call watchColorPicker on change.
-colorPicker.addEventListener("change", watchColorPicker, false);
+  // Set size picker submit button listener. On click call the sizePickerHandler().
+  sizePickerSubmit.addEventListener("click", sizePickerHandler, false);
 
-// Set the clear button listener
-clearCanvas.addEventListener("click", clearGrid, false);
+  // Set the color picker listener. On a change, call watchColorPicker().
+  colorPicker.addEventListener("change", watchColorPicker, false);
 
-// Set the draw listener. Call
-pixelCanvas.addEventListener("mouseover", draw, false);
-pixelCanvas.addEventListener("mousedown", draw, false);</code></pre>
-        </article>
+  // Set the clear button listener. On a click call clearGrid().
+  clearCanvas.addEventListener("click", clearGrid, false);
+
+  // Set the canvas listeners. On a mouse over, call draw(). On a mousedown call draw().
+  pixelCanvas.addEventListener("mouseover", draw, false);
+  pixelCanvas.addEventListener("mousedown", draw, false);
+
+}
+
+// Set the document listener for DOM content loaded. On DCL call init().
+document.addEventListener("DOMContentLoaded", init);</code></pre>
+      </article>
     </section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#@default">@default</a></li><li><a href="global.html#clearCanvas">clearCanvas</a></li><li><a href="global.html#colorPicker">colorPicker</a></li><li><a href="global.html#erase">erase</a></li><li><a href="global.html#inputHeight">inputHeight</a></li><li><a href="global.html#inputWidth">inputWidth</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#pixelCanvas">pixelCanvas</a></li><li><a href="global.html#sizePickerForm">sizePickerForm</a></li><li><a href="global.html#sizePickerSubmit">sizePickerSubmit</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Mar 20 2018 22:56:17 GMT-0400 (DST)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+  </div>
+  <nav>
+    <h2>
+      <a href="index.html">Home</a>
+    </h2>
+    <h3>Global</h3>
+    <ul>
+      <li>
+        <a href="global.html#clearCanvas">clearCanvas</a>
+      </li>
+      <li>
+        <a href="global.html#color">color</a>
+      </li>
+      <li>
+        <a href="global.html#colorPicker">colorPicker</a>
+      </li>
+      <li>
+        <a href="global.html#erase">erase</a>
+      </li>
+      <li>
+        <a href="global.html#init">init</a>
+      </li>
+      <li>
+        <a href="global.html#inputHeight">inputHeight</a>
+      </li>
+      <li>
+        <a href="global.html#inputWidth">inputWidth</a>
+      </li>
+      <li>
+        <a href="global.html#paint">paint</a>
+      </li>
+      <li>
+        <a href="global.html#pixelCanvas">pixelCanvas</a>
+      </li>
+      <li>
+        <a href="global.html#sizePickerForm">sizePickerForm</a>
+      </li>
+      <li>
+        <a href="global.html#sizePickerSubmit">sizePickerSubmit</a>
+      </li>
+      <li>
+        <a href="global.html#tableHtml">tableHtml</a>
+      </li>
+    </ul>
+  </nav>
+  <br class="clear">
+  <footer>Documentation generated by
+    <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 23 2018 10:13:54 GMT-0400 (DST)</footer>
+  <script>
+    prettyPrint()
+  </script>
+  <script src="scripts/linenumber.js"></script>
 </body>
+
 </html>
