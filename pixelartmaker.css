@@ -1,25 +1,52 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   text-align: center;
 }
 
+/** HEADINGS **/
+@font-face {
+  font-family: "SF Pixelate Shaded Bold";
+  src: url(SFPixelateShaded-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pixelate";
+  src: url(SFPixelate.ttf) format("truetype");
+}
+
 h1 {
-  font-family: Monoton;
-  font-size: 70px;
+  font-family: "SF Pixelate Shaded Bold";
+  font-size: 6em;
   margin: 0.2em;
 }
 
-h2 {
+h2,
+legend {
+  font-family: "SF Pixelate";
+  font-size: 1.5em;
+  font-weight: normal;
   margin: 1em 0 0.25em;
 }
 
 h2:first-of-type {
-  margin-top: 0.5em;
+  margin-top: 0;
 }
+
+/** TABLES **/
 
 table,
 tr,
 td {
-  border: 1px solid black;
+  border: 1px solid #999;
 }
 
 table {
@@ -28,16 +55,22 @@ table {
 }
 
 tr {
-  height: 20px;
+  height: 1em;
 }
 
 td {
-  height: 20px;
-  width: 20px;
+  height: 1em;
+  width: 1em;
+}
+
+/** FORMS **/
+
+form {
+  font-family: "SF Pixelate";
 }
 
 input[type="number"] {
-  width: 3em;
+  width: 4em;
 }
 
 input[type="radio"] {
@@ -46,22 +79,22 @@ input[type="radio"] {
   appearance: none;
 
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 1.5em;
+  height: 1.5em;
 
-  border: 2px solid #999;
+  border: 0.2em solid #999;
   transition: 0.2s all linear;
   outline: none;
-  margin-right: 5px;
+  margin-right: 0.6em;
 
   position: relative;
   top: 4px;
 }
 
 input:checked {
-  border: 10px solid black;
+  border: 0.6em solid #555555;
 }
 
 #clearCanvas {
-  margin-left: 12px;
+  margin-left: 0.8em;
 }

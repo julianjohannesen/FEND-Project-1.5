@@ -5,7 +5,6 @@
  * @version 1.0.0
  */
 /** DOM object constants */
-/** @const {string} sizePickerForm - This variable holds the size picker form element */
 /** @const {number} inputHeight - This variable holds the height input element */
 /** @const {number} inputWidth - This variable holds the width input element */
 /** @const {string} sizePickerSubmit - This variable holds the size picker form's submit button element */
@@ -16,7 +15,6 @@
 /** @const {string} clearCanvas - This variable holds the clear canvas button element */
 /** @const {string} pixelCanvas - This variable holds the canvas table element */
 
-const sizePickerForm = document.getElementById("sizePicker");
 const inputHeight = document.getElementById("inputHeight");
 const inputWidth = document.getElementById("inputWidth");
 const sizePickerSubmit = document.getElementById("sizePickerSubmit");
@@ -70,6 +68,8 @@ function makeTable() {
  * @returns {undefined}
  */
 function insertTable() {
+  // Set paint to checked, just in case the user had previously set the erase mode and forgotten to change back before hitting "submit"
+  paint.checked = true;
   // Set the canvas's innerHTML property to the table html
   pixelCanvas.innerHTML = tableHtml;
 }
@@ -98,6 +98,8 @@ function sizePickerHandler() {
  * @returns {undefined}
  */
 function watchColorPicker(event) {
+  // Set paint to checked, just in case the user had previously set the erase mode and forgotten to change back before selecting a new color
+  paint.checked = true;
   // Set the color variable to the color selected in the color picker
   color = event.target.value;
 }
