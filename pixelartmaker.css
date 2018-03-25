@@ -16,6 +16,11 @@ body {
 
 /** SECTIONS **/
 
+#controls {
+  margin: auto;
+  width: 63em;
+}
+
 #canvasSec .top-pad {
   padding-top: 2em;
 }
