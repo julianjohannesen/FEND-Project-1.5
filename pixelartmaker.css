@@ -1,7 +1,9 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
+
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -12,7 +14,14 @@ body {
   text-align: center;
 }
 
+/** SECTIONS **/
+
+#canvasSec .top-pad {
+  padding-top: 2em;
+}
+
 /** HEADINGS **/
+
 @font-face {
   font-family: "SF Pixelate Shaded Bold";
   src: url(SFPixelateShaded-Bold.ttf) format("truetype");
@@ -38,7 +47,8 @@ legend {
 }
 
 h2:first-of-type {
-  margin-top: 0;
+  font-size: 2.5em;
+  margin: .5em 0;
 }
 
 /** TABLES **/
@@ -69,24 +79,33 @@ form {
   font-family: "SF Pixelate";
 }
 
+label {
+  font-size: 1.3em;
+}
+
+input {
+  font: normal normal normal 1rem/1rem sans-serif;
+}
+
 input[type="number"] {
   width: 4em;
+}
+
+label[for="inputWidth"] {
+  margin-left: .8em;
 }
 
 input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
-
   border: 0.2em solid #999;
   transition: 0.2s all linear;
   outline: none;
   margin-right: 0.6em;
-
   position: relative;
   top: 4px;
 }
@@ -95,6 +114,21 @@ input:checked {
   border: 0.6em solid #555555;
 }
 
-#clearCanvas {
+#clearCanvas,
+#sizePickerSubmit {
   margin-left: 0.8em;
+}
+
+/** HELPERS **/
+
+.l-box {
+  padding: 1em;
+}
+
+.top-pad {
+  padding-top: 1em;
+}
+
+.bottom-pad {
+  padding-bottom: 1em;
 }
