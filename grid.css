@@ -1,0 +1,18 @@
+// GRIDs
+fieldset {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+label[for="inputHeight"] {
+  grid-column-start: 1;
+}
+
+label[for="inputWidth"] {
+  grid-column-start: 2;
+}
+
+button[type="submit"] {
+  grid-column-start: 3;
+}

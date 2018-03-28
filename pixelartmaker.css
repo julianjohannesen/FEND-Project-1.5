@@ -54,12 +54,12 @@ legend {
 h2:first-of-type {
   font-size: 2.5em;
   margin: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   text-align: center;
 }
 
 h3:first-of-type {
-  margin: .3em 0 .4em 0;
+  margin: 0.3em 0 0.4em 0;
   font-size: 1.3em;
   font-weight: normal;
 }
@@ -88,7 +88,7 @@ td {
 
 #colorPalette {
   border: none;
-  margin: 0 0 .5em 0;
+  margin: 0 0 0.5em 0;
 }
 
 #colorPalette tr {
@@ -101,11 +101,11 @@ td {
 }
 
 #colorPalette:hover {
-  cursor: url('/iconmonstr-eyedropper-1.svg') 0 24, pointer;
+  cursor: url("/iconmonstr-eyedropper-1.svg") 0 24, pointer;
 }
 
 #pixelCanvas:hover {
-  cursor: url('/iconmonstr-pencil-15.svg') 0 24, pointer;
+  cursor: url("/iconmonstr-pencil-15.svg") 0 24, pointer;
 }
 
 /** FORMS **/
@@ -119,7 +119,11 @@ form {
 }
 
 label {
+  display: inline-block;
   font-size: 1.3em;
+  margin: 0.5em;
+  margin-bottom: 0.8em !important;
+  vertical-align: middle;
 }
 
 input {
@@ -129,17 +133,17 @@ input {
 .pure-form input[type="number"] {
   padding: 0.3em 0.5em 0.2em;
   margin-right: 0.8em;
-  width: 4em;
+  width: 3.5em;
 }
 
-.pure-form input[type=color] {
-  padding: .2em;
+.pure-form input[type="color"] {
+  padding: 0.2em;
   height: 2em;
   width: 4em;
-  border-radius: .1em;
+  border-radius: 0.1em;
 }
 
-.pure-form input[type=color]:hover {
+.pure-form input[type="color"]:hover {
   cursor: pointer;
 }
 

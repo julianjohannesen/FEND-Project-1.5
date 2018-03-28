@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+  <link rel="stylesheet" href="grid.css">
   <link rel="stylesheet" href="pixelartmaker.css">
   </script>
 </head>
@@ -21,26 +22,34 @@
       <form class="pure-form pure-g">
         <fieldset class="pure-u-2-5">
           <legend>Grid Size</legend>
-          <label for="inputHeight">
-            Height:</label>
-          <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="20" accesskey="H" tabindex="0">
-          <label for="inputWidth">Width:</label>
-          <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="20" accesskey="W" tabindex="1">
-          <button type="button" id="sizePickerSubmit" class="pure-button" tabindex="2">Submit</button>
+          <section>
+            <label for="inputHeight">Height:
+              <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="20" accesskey="H" tabindex="0">
+            </label>
+            <label for="inputWidth">Width:
+              <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="20" accesskey="W" tabindex="1">
+            </label>
+          </section>
+          <section>
+            <button type="button" id="sizePickerSubmit" class="pure-button" tabindex="2">Draw Grid</button>
+            <button type="button" id="clearCanvas" class="pure-button" tabindex="5">Clear Grid</button>
+          </section>
         </fieldset>
         <fieldset class="pure-u-2-5">
           <legend>Mode</legend>
-          <label for="paintBttn">Paint</label>
-          <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
-          <label for="eraseBttn">Erase</label>
-          <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
-          <button type="button" id="clearCanvas" class="pure-button" value="Clear" tabindex="5">Clear</button>
+          <label for="paintBttn">Paint
+            <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
+          </label>
+          <label for="eraseBttn">Erase
+            <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
+          </label>
         </fieldset>
         <fieldset id="colorFieldset" class="pure-u-1-5">
           <legend class="">Color</legend>
-          <label for="colorPicker" class="">Pick A Color&nbsp;&nbsp;</label>
-          <input type="color" id="colorPicker" value="#000000">
-          <h3>Color Palette</h3>
+          <label for="colorPicker" class="">Pick A Color&nbsp;&nbsp;
+            <input type="color" id="colorPicker" value="#000000">
+          </label>
+          <h3>Palette</h3>
           <table id="colorPalette" class="">
             <tbody>
               <tr>
@@ -58,7 +67,7 @@
     </section>
 
     <section id="canvasSec" class="l-box pure-u-1">
-      <h2>Design Canvas</h2>
+      <h2>Canvas</h2>
       <table id="pixelCanvas">
         <tr>
           <td></td>
