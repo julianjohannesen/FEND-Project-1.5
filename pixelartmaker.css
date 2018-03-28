@@ -10,8 +10,17 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  /*text-align: center;*/
+body::after {
+  content: "";
+  background-image: url("/pink.png");
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  z-index: -1;
 }
 
 /** SECTIONS **/
@@ -70,6 +79,7 @@ table,
 tr,
 td {
   border: 1px solid #999;
+  background-color: #ffffff;
 }
 
 table {
