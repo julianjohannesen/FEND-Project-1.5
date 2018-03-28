@@ -1,4 +1,26 @@
 // GRIDs
+
+div.wrap {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 10% auto 10%;
+}
+
+div.spacer1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+div.spacer2 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+div.wrap {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
 fieldset {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;

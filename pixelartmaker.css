@@ -17,13 +17,13 @@ body {
 
 body::after {
   content: "";
-  background-image: url("/pink.png");
+  background-image: url("/pink2.png");
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: .8;
+  opacity: 0.8;
   z-index: -1;
 }
 
