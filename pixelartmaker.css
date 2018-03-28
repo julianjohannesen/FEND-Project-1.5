@@ -10,10 +10,14 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  color: mediumpurple;
+  font-family: "SF Pixelate";
+}
+
 body::after {
   content: "";
   background-image: url("/pink.png");
-  display: block;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -46,6 +50,7 @@ body::after {
 }
 
 h1 {
+  color: rgb(124, 78, 216);
   font-family: "SF Pixelate Shaded Bold";
   font-size: 6em;
   margin: 0.2em;
@@ -53,7 +58,8 @@ h1 {
 }
 
 h2,
-legend {
+.pure-form legend {
+  color: mediumpurple;
   font-family: "SF Pixelate";
   font-size: 1.5em;
   font-weight: normal;
