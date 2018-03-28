@@ -11,14 +11,13 @@ html {
 }
 
 body {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 /** SECTIONS **/
 
 #controls {
-  margin: auto;
-  width: 63em;
+  margin: 0;
 }
 
 #canvasSec .top-pad {
@@ -41,6 +40,7 @@ h1 {
   font-family: "SF Pixelate Shaded Bold";
   font-size: 6em;
   margin: 0.2em;
+  text-align: center;
 }
 
 h2,
@@ -53,7 +53,15 @@ legend {
 
 h2:first-of-type {
   font-size: 2.5em;
-  margin: .5em 0;
+  margin: 0;
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+h3:first-of-type {
+  margin: .3em 0 .4em 0;
+  font-size: 1.3em;
+  font-weight: normal;
 }
 
 /** TABLES **/
@@ -78,10 +86,36 @@ td {
   width: 1em;
 }
 
+#colorPalette {
+  border: none;
+  margin: 0 0 .5em 0;
+}
+
+#colorPalette tr {
+  border: none;
+}
+
+#colorPalette td {
+  height: 2em;
+  width: 2em;
+}
+
+#colorPalette:hover {
+  cursor: url('/iconmonstr-eyedropper-1.svg') 0 24, pointer;
+}
+
+#pixelCanvas:hover {
+  cursor: url('/iconmonstr-pencil-15.svg') 0 24, pointer;
+}
+
 /** FORMS **/
 
 form {
   font-family: "SF Pixelate";
+}
+
+#colorFieldset legend {
+  letter-spacing: normal !important;
 }
 
 label {
@@ -92,12 +126,21 @@ input {
   font: normal normal normal 1rem/1rem sans-serif;
 }
 
-input[type="number"] {
+.pure-form input[type="number"] {
+  padding: 0.3em 0.5em 0.2em;
+  margin-right: 0.8em;
   width: 4em;
 }
 
-label[for="inputWidth"] {
-  margin-left: .8em;
+.pure-form input[type=color] {
+  padding: .2em;
+  height: 2em;
+  width: 4em;
+  border-radius: .1em;
+}
+
+.pure-form input[type=color]:hover {
+  cursor: pointer;
 }
 
 input[type="radio"] {
@@ -115,13 +158,17 @@ input[type="radio"] {
   top: 4px;
 }
 
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+
 input:checked {
   border: 0.6em solid #555555;
 }
 
 #clearCanvas,
 #sizePickerSubmit {
-  margin-left: 0.8em;
+  margin-right: 0.8em;
 }
 
 /** HELPERS **/

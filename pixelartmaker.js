@@ -9,7 +9,10 @@
 /** @const {number} inputWidth - This variable holds the width input element */
 /** @const {string} sizePickerSubmit - This variable holds the size picker form's submit button element */
 /** @const {string} colorPicker - This variable holds the color input element */
-/** @const {string} color - This variable holds the color value chosen by the user in the color picker. */
+/** @const {string} color - This variable holds the color value chosen by the user in the color picker */
+/** @const {string} colorPalette - This varialbe holds the color palette table element */
+/** @const {ojbect} palette - This object holds the colorPalette color values */
+/** @const {string} messageSpan - This variable holds the warning message that the color palette is full */
 /** @const {string} paint - This variable holds the paint radio input element */
 /** @const {string} erase - This variable holds the erase radio input element */
 /** @const {string} clearCanvas - This variable holds the clear canvas button element */
@@ -20,6 +23,15 @@ const inputWidth = document.getElementById("inputWidth");
 const sizePickerSubmit = document.getElementById("sizePickerSubmit");
 const colorPicker = document.getElementById("colorPicker");
 let color = "#000000";
+const colorPalette = document.getElementById("colorPalette");
+const palette = {
+  color1: "#ffffff",
+  color2: "#ffffff",
+  color3: "#ffffff",
+  color4: "#ffffff",
+  color5: "#ffffff"
+};
+const messageSpan = document.getElementById("messageSpan");
 const paint = document.getElementById("paintBttn");
 const erase = document.getElementById("eraseBttn");
 const clearCanvas = document.getElementById("clearCanvas");
@@ -102,6 +114,8 @@ function watchColorPicker(event) {
   paint.checked = true;
   // Set the color variable to the color selected in the color picker
   color = event.target.value;
+  // Add the new color to the color palette
+  addColorToPalette();
 }
 
 /**
@@ -119,6 +133,42 @@ function draw(event) {
     // Otherwise, the app is in erase mode, so set the target table cell's background color to transparent
     event.target.style.backgroundColor = "transparent";
   }
+}
+
+function addColorToPalette() {
+  // Add the picked color to the palette, if it is not already there
+
+  // Loop through the color slots in the palette object to see if the color is already there
+  // and if so, break out of the function
+  for (let i = 1; i <= 5; i++) {
+    if (palette["color" + i] == color) {
+      break;
+    }
+  }
+  // If the color is not there, then look for an open slot in the palette object
+  for (let j = 1; j <= 5; j++) {
+    // If we find a slot that has color white, replace that color with the new value of the color variable
+    if (palette["color" + j] == "#ffffff") {
+      // Set the color in the color palette object
+      palette["color" + j] = color;
+      // Set the color of the table cell in the DOM
+      colorPalette.firstElementChild.firstElementChild.children[
+        j - 1
+      ].style.backgroundColor = color;
+      // ... and break out of the function, returning the new color palette color
+      return palette["color" + j];
+    }
+  }
+  // If the color palette is full of non-white colors, ask the user to replace one of the existing colors with the new color
+  // First, inform the user
+  messageSpan.textContent =
+    "Your palette is full. If you'd like to add this color to your palette, please pick a color to replace.";
+  // Second, if the user clicks on a table cell, the table cell takes the new color
+  // This requires a new event listener that is only set if the color variable's value has changed and the user has drawn on the canvass with that color
+}
+
+function switchColor(event) {
+  color = event.target.style.backgroundColor;
 }
 
 /**
@@ -149,6 +199,9 @@ function init() {
 
   // Set the color picker listener. On a change, call watchColorPicker().
   colorPicker.addEventListener("change", watchColorPicker, false);
+
+  // Set the color palette listener. On click, call switchColor
+  colorPalette.addEventListener("click", switchColor, false);
 
   // Set the clear button listener. On a click call clearGrid().
   clearCanvas.addEventListener("click", clearGrid, false);

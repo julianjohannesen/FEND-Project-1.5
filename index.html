@@ -22,30 +22,37 @@
         <fieldset class="pure-u-2-5">
           <legend>Grid Size</legend>
           <label for="inputHeight">
-            Height:
-            <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="20" accesskey="H" tabindex="0">
-          </label>
-          <label for="inputWidth">
-            Width:
-            <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="20" accesskey="W" tabindex="1">
-          </label>
+            Height:</label>
+          <input type="number" id="inputHeight" name="height" min="1" max="999" maxlength="3" step="1" value="20" accesskey="H" tabindex="0">
+          <label for="inputWidth">Width:</label>
+          <input type="number" id="inputWidth" name="width" min="1" max="999" maxlength="3" step="1" value="20" accesskey="W" tabindex="1">
           <button type="button" id="sizePickerSubmit" class="pure-button" tabindex="2">Submit</button>
         </fieldset>
         <fieldset class="pure-u-2-5">
           <legend>Mode</legend>
-          <label for="paintBttn">Paint
-            <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
-          </label>
-          <label for="eraseBttn">Erase
-            <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
-          </label>
+          <label for="paintBttn">Paint</label>
+          <input type='radio' name='mode' id='paintBttn' value="Paint" checked tabindex="3">
+          <label for="eraseBttn">Erase</label>
+          <input type='radio' name='mode' id='eraseBttn' value="Erase" tabindex="4">
           <button type="button" id="clearCanvas" class="pure-button" value="Clear" tabindex="5">Clear</button>
         </fieldset>
-        <fieldset class="pure-u-1-5">
-          <legend>Color</legend>
-          <label for="colorPicker ">Pick A Color
-            <input type="color" id="colorPicker" value="#000000">
-          </label>
+        <fieldset id="colorFieldset" class="pure-u-1-5">
+          <legend class="">Color</legend>
+          <label for="colorPicker" class="">Pick A Color&nbsp;&nbsp;</label>
+          <input type="color" id="colorPicker" value="#000000">
+          <h3>Color Palette</h3>
+          <table id="colorPalette" class="">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <span id="messageSpan" style="color:red;"></span>
         </fieldset>
       </form>
     </section>
