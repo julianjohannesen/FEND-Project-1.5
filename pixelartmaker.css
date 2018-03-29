@@ -17,7 +17,7 @@ body {
 
 body::after {
   content: "";
-  background-image: url("/pink2.png");
+  background-image: url("/pink.png");
   height: 100%;
   width: 100%;
   position: absolute;
